@@ -1,0 +1,123 @@
+#include "MapContestants.h"
+
+MapContestants::MapContestants()
+{
+}
+MapContestants::MapContestants(string read_this)
+{
+	ifstream readStream;
+	readStream.open(read_this);
+	string input=""; 
+	string desired_expertise="novice";
+	string desired_mode="tradeN";
+
+	int counter=-1; 
+
+	//string subject="";
+	string expertise="";
+	string mode="";
+	/*int mode_order=-1;
+	int trial=-1;*/
+	string s_winner="";
+	string s_loser="";
+	int winner=-1;
+	int loser=-1;
+	/*double winnerRating=-1;
+	double loserRating=-1;
+	double absDiffRating=-1;
+	int time=-1;
+	string correct="";
+	int correctNum=-1;*/
+
+	getline(readStream, input, '\n');//this should be names of columns
+	//cout << input << endl;
+
+	while(readStream.good())
+	{
+		counter++;
+		getline(readStream, input, '\n');
+		//cout << input << endl;
+
+		//split the whole line into each of the individual variables
+		istringstream is(input);
+		//getline(is,subject,',');
+		getline(is,expertise,',');
+		getline(is,mode,',');
+		/*getline(is,mode_order,',');
+		getline(is,trial,',');*/
+		getline(is,s_winner,',');
+		winner = atoi(s_winner.c_str());
+		getline(is,s_loser,',');
+		loser = atoi(s_loser.c_str());
+
+		cout << " Experience: " << expertise << " Mode: " << mode << endl
+		 << " Winner: " << winner << " Loser: " << loser << endl;
+
+		if(expertise!=desired_expertise || mode!=desired_mode) continue;
+		else
+		{
+			cout << " Exper: " << expertise << " Mode: " << mode << " Winner: " << winner << " Loser: " << loser << endl;
+			cout << counter << endl;
+			Website winner_website = Website(winner);
+			cout << "winner_website " << winner_website.printWins() << winner_website.printLosses() << winner_website.printName() << endl;
+
+			Website loser_website = Website(loser);
+
+			if(all_contestants.find(winner)==all_contestants.end())
+			{
+				//add the website to the map
+				all_contestants.insert(pair<int,Website>(winner,winner_website));
+			}
+			//then put down a win on their record
+			(all_contestants.find(winner)->second).add_win_to_record(loser);//????
+
+
+
+			if(all_contestants.find(loser)==all_contestants.end())
+			{
+				//add that website to the map
+				all_contestants.insert(pair<int,Website>(loser,loser_website));
+			}
+			//then put down a loss on their record
+			//all_contestants.find(loser)->second.add_loss_to_record(winner);
+		}
+	}
+	readStream.close();
+/*	cout << "MapContestants' all_contestants.size() is " << all_contestants.size() << endl;
+    for(auto pair : all_contestants)
+    {
+
+   		cout << pair.first << endl;
+		cout << pair.second.printWins() << pair.second.printLosses() << pair.second.printName();	
+	}
+	*/
+
+	//loop through and figure out win and loss records for each item in the map
+
+		
+	//then Winner=name of the winner and Loser=...
+	//tally up their wins and losses
+
+	//make a website obj [ONLY "tradeN" comparisons] (int (name) and double (old score) and double (new score))
+	//store each website's name, num of wins/(wins+losses)
+	//put the websites into a map to facilitate finding it quickly 
+
+	//for loop to see each of it's rivals
+	//take difference of rival's score and their score 
+	//add to their new score
+		
+	//then Winner=name of the winner and Loser=...
+	//tally up their wins and losses
+
+	//make a website obj [ONLY "tradeN" comparisons] (int (name) and double (old score) and double (new score))
+	//store each website's name, num of wins/(wins+losses)
+	//put the websites into a map to facilitate finding it quickly 
+	//bonus questions: 1. what happens if we iterate through a second time to see the adjusted score??
+	//2. can we somehow correct for the fact that novices are wrong 20% of the time?
+	//3. I forgot.. 
+}
+
+MapContestants::~MapContestants()
+{
+	
+}
