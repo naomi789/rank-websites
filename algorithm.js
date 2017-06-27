@@ -1683,7 +1683,7 @@ _.forEach(nodes, (node, key) => {
     node.trueScore += Math.abs(nodes[id].ratio - node.ratio);
   })
 })
-
-console.log(nodes)
-
+for(let i=0;i<Object.keys(nodes).length;i++) {
+  console.log(nodes[(Object.keys(nodes)[i])].trueScore);
+}
 
