@@ -1,0 +1,144 @@
+		/*getline(is,winnerRating,',');
+		getline(is,loserRating,',');
+		getline(is,absDiffRating,',');
+		getline(is,time,',');
+		getline(is,correct,',');
+		getline(is,correctNum,',');*/
+		/*istringstream is(input);
+		is >> subject >> expertise >> mode >> mode_order >> trial
+		>> winner >> loser >> winnerRating >> loserRating >> 
+		absDiffRating >> time >> correct >> correctNum;*/
+
+
+		/*cout << " Subj: " << subject << " Exper: " << expertise << " Mode: " << mode << " ModeOrder: " << mode_order << " Trial: " << trial
+		<< " Winner: " << winner << " Loser: " << loser << winnerRating << loserRating << 
+		absDiffRating << time << correct << endl << counter << correctNum << endl;
+		
+		*///cout << "counter " << counter << endl;
+		//cout << " expertise: " << expertise << " mode: " << mode << endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//read in csv files
+	//string read_this = argv[1];
+	ifstream readStream;
+	readStream.open(read_this);
+	string input=""; 
+	string desired_expertise="Novice";
+	string desired_mode="tradeN";
+
+	int counter=0; 
+
+	string subject_correctNum="";
+	string expertise="";
+	string mode="";
+	int mode_order=-1;
+	int trial=-1;
+	int winner=-1;
+	int loser=-1;
+	double winnerRating=-1;
+	double loserRating=-1;
+	double absDiffRating=-1;
+	int time=-1;
+	string correct="";
+	int correctNum=-1;
+	map <int,Website> website_competitors;//int=name, Website will hold name again
+
+	/*readStream >> subject_correctNum >> expertise >> mode >> mode_order >> trial
+		>> winner >> loser >> winnerRating >> loserRating >> 
+		absDiffRating >> time >> correct; //skipping correctNum bc that bleeds in w/ subject
+
+	cout << "first row " << subject_correctNum << " " << expertise << " " << mode << " " << mode_order <<" " <<  trial
+		<< " " << winner << " " << loser << " " << winnerRating << " " << loserRating << 
+		absDiffRating <<" " <<  time << " " << correct << endl << endl <<endl << counter << endl;
+*/
+	getline(readStream, input, '\n');//this should be names of columns
+	//cout << input << endl;
+	vector<string> v;
+	while(readStream.good())////as long as can take in things
+	{
+		getline(readStream, input, '\n');
+		cout << input << endl;
+		//input.splitstring(',');
+
+		//getline(input,subject_correctNum,',');
+		/*input >> subject_correctNum >> expertise >> mode >> mode_order >> trial
+		>> winner >> loser >> winnerRating >> loserRating >> 
+		absDiffRating >> time >> correct >> correctNum;
+*/
+		//counter++;
+		/*readStream >> subject_correctNum >> expertise >> mode >> mode_order >> trial
+		>> winner >> loser >> winnerRating >> loserRating >> 
+		absDiffRating >> time >> correct; //skipping correctNum bc that bleeds in w/ subject
+*/
+		cout << subject_correctNum << expertise << mode << mode_order << trial
+		<< winner << loser << winnerRating << loserRating << 
+		absDiffRating << time << correct << endl << counter << endl;
+
+		if(expertise!=desired_expertise && mode!=desired_mode) continue; 
+
+
+		//add a win to their record 
+		//add a loss to their record 		
+		//then Winner=name of the winner and Loser=...
+		//tally up their wins and losses
+
+		//make a website obj [ONLY "tradeN" comparisons] (int (name) and double (old score) and double (new score))
+		//store each website's name, num of wins/(wins+losses)
+		//put the websites into a map to facilitate finding it quickly 
+	}
+	readStream.close();
+
+
+
+
+
+	//for loop to see each of it's rivals
+		//take difference of rival's score and their score 
+		//add to their new score
+	//bonus questions: 1. what happens if we iterate through a second time to see the adjusted score??
+	//2. can we somehow correct for the fact that novices are wrong 20% of the time?
+	//3. I forgot.. 	
+
+	
+		
+		/*getline(readStream, input, ',');//that was "subject"
+		getline(readStream, input, ',');//Expertise
+		if(input!=expertise) 
+		{
+			getline(readStream, input, '\n');//go until a new line and don't save anything
+		}
+		getline(readStream, input, ',');//Mode
+		if(input!=mode)
+		{
+			getline(readStream, input, '\n');//go until a new line and don't save anything
+		}
+		getline(readStream, input, ',');//Mode_Order
+		getline(readStream, input, ',');//Trial
+		getline(readStream, winner, ',');//Winner
+		if((website_competitors.find(winner)->second)!=website_competitors.end())
+		{
+			//add a win to their record 
+		}
+		getline(readStream, loser, ',');//Loser
+		if((website_competitors.find(loser)->second)!=website_competitors.end())
+		{
+			//add a loss to their record 
+		}*/
+		//then Winner=name of the winner and Loser=...
+		//tally up their wins and losses
