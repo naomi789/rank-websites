@@ -1,5 +1,3 @@
-const _ = require('lodash');
-const decisions = [
 {winner: '63', loser: '77'},
 {winner: '322', loser: '165'},
 {winner: '322', loser: '235'},
