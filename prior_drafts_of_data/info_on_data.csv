@@ -1,0 +1,11 @@
+info on the data:
+
+10479 rows of data from expert
+(23005 = all data) - (10481 = expert data) = novice data = 12524
+
+out of the remaining 12524 rows of data
+only 6262 were trade C ones
+
+1198 of those trade ones were incorrect
+
+leaves us with 5067 rows of data
