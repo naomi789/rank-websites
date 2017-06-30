@@ -1,6 +1,8 @@
 const _ = require('lodash');
-const decisions = [{},{}];
-
+const decisions = [
+  {},{}
+];
+const nodes = {};
 
 // Setup loop
 for(let i = 0; i < decisions.length; i++) {
@@ -31,15 +33,29 @@ _.forEach(nodes, (node, key) => {
 })
 
 
-// Calculate for each of a nodes wins, the points it gains from its competitor?
+//score2
 _.forEach(nodes, (node, key) => {
-  node.trueScore = 0;
+  node.score2 = 0;
   _.forEach(node.wins, (id) => {
-    node.trueScore += Math.abs(nodes[id].ratio - node.ratio);
+    node.score2 += Math.abs(nodes[id].ratio - node.ratio);
   })
 })
+
+
+
+
+//print out desired results 
 for(let i=0;i<Object.keys(nodes).length;i++) {
-  console.log(nodes[(Object.keys(nodes)[i])].trueScore);
+  //console.log((nodes[(Object.keys(nodes)[i])].wins.length)); //column1
+  //console.log((nodes[(Object.keys(nodes)[i])].losses.length)); //column2
+  //console.log(nodes[(Object.keys(nodes)[i])].losses.length + nodes[(Object.keys(nodes)[i])].wins.length);//column3
+  //console.log((nodes[(Object.keys(nodes)[i])].wins.length)/((nodes[(Object.keys(nodes)[i])].losses.length) + nodes[(Object.keys(nodes)[i])].wins.length));//column4 wins over matches
+  //console.log((nodes[(Object.keys(nodes)[i])].wins.length)/((nodes[(Object.keys(nodes)[i])].losses.length)));//column5 wins over losses
+  //console.log((nodes[(Object.keys(nodes)[i])].losses.length)/((nodes[(Object.keys(nodes)[i])].wins.length)));//column6 losses over wins 
+  console.log(nodes[(Object.keys(nodes)[i])].score2);
+  //console.log(nodes[(Object.keys(nodes)[i])].score3);
+  //console.log(nodes[(Object.keys(nodes)[i])].score4);
+  //console.log(nodes[(Object.keys(nodes)[i])].score5);
 }
 
 
